@@ -19,15 +19,20 @@ form.addEventListener("submit", function (event) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      let output = "<h5>Successfully Data Fatched !!!</h5>" ;
+      let output = "" ;
 
       if (
         data.near_earth_objects === undefined ||
         Object.keys(data.near_earth_objects).length === 0
       ) {
         output +=
-          "<p>No Near Earth Objects found for the specified date range.</p>";
+          `<div class="alert fixed-top alert-danger" role="alert">
+          Range of date should be <strong>Less then or Equal to 7</strong>
+        </div>`;
       } else {
+
+        output = "<h5>Successfully Data Fatched !!!</h5>" ;
+
         const sortedDates = Object.keys(data.near_earth_objects).sort();
 
         const fastest = findFastestAsteroid(data.near_earth_objects);

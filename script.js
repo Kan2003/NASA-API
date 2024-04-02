@@ -82,6 +82,7 @@ form.addEventListener("submit", function (event) {
             },
           },
         });
+        
 
         output += `<h2>Fastest Asteroid</h2>`;
         output += `<ul>`;
@@ -176,3 +177,10 @@ const calculateAverageSize = (data) => {
   // console.log(averageSize)
   return averageSize;
 };
+
+
+function refreshPage() {
+  location.reload();
+}
+
+document.getElementById("refreshButton").addEventListener("click", refreshPage);
